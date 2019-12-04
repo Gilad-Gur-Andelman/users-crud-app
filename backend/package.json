@@ -1,0 +1,24 @@
+{
+  "name": "users-crud-app",
+  "version": "1.0.0",
+  "description": "single page web app to add users and display them as a list",
+  "main": "server.js",
+  "scripts": {
+    "client": "npm run start --prefix client",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "npm run server",
+    "test": "npm test"
+  },
+  "author": "Gilad Gur Andelman @Loadmill",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^2.0.1"
+  },
+  "proxy": "http://localhost:3001"
+}
