@@ -3,10 +3,16 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.json());
+const port = 3001 || process.env.PORT;
 
-app.get('/hey', (req, res, next) => {
-    res.status(200).send('Hello from node JS');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const usersArr = [];
+
+app.post('/mypost', (req, res, next) => {
+    usersArr.push(req.body.post);
+    res.status(200).send('This is a Server response to request at /mypost');
 });
 
-app.listen(3001);
+app.listen(port, console.log(`Listening on port ${port}`));

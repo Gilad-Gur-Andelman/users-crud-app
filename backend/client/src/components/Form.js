@@ -21,6 +21,8 @@ class Form extends React.Component {
         const { addUser } = this.props;
 
         addUser(user);
+
+        this.setState({ value: '' })
     }
 
     render() {
@@ -28,7 +30,7 @@ class Form extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Add User:
-            <div>
+                    <div>
                         <input type="text" value={this.state.value} onChange={this.handleChange} />
                     </div>
                 </label>

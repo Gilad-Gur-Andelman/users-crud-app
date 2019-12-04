@@ -9,13 +9,24 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { users: [] };
+    this.state = { users: [], post: '' };
   }
 
-  addUser = (newUser) => {
+  addUser = async (newUser) => {
     const usersArrCopy = [...this.state.users];
     usersArrCopy.push(newUser);
-    this.setState({ users: usersArrCopy })
+    this.setState({ users: usersArrCopy });
+
+    var body = { post: newUser };
+    const response = await fetch('/mypost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const responseBody = await response.text();
+    this.setState({ responseToPost: responseBody });
   };
 
   render() {
@@ -23,6 +34,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Form addUser={this.addUser} />
+        <p>{this.state.responseToPost}</p>
         <List usersList={this.state.users} />
       </div>
     );
