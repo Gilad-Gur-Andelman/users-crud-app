@@ -13,9 +13,9 @@ class App extends React.Component {
   }
 
   addUser = async (newUser) => {
-    const usersArrCopy = [...this.state.users];
-    usersArrCopy.push(newUser);
-    this.setState({ users: usersArrCopy });
+    // const usersArrCopy = [...this.state.users];
+    // usersArrCopy.push(newUser);
+    // this.setState({ users: usersArrCopy });
 
     var body = { post: newUser };
     const response = await fetch('/mypost', {
@@ -25,8 +25,8 @@ class App extends React.Component {
       },
       body: JSON.stringify(body),
     });
-    const responseBody = await response.text();
-    this.setState({ responseToPost: responseBody });
+    const responseBody = await response.json();
+    this.setState({ users: responseBody.usersArr });
   };
 
   render() {
@@ -34,7 +34,6 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Form addUser={this.addUser} />
-        <p>{this.state.responseToPost}</p>
         <List usersList={this.state.users} />
       </div>
     );

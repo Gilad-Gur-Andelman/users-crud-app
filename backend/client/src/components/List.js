@@ -11,8 +11,8 @@ const List = (props) => {
                 Users && Users.length > 0 ?
                     <ul>
                         {Users.map(user => (
-                            <li key={user}>
-                                <div>{user}</div>
+                            <li key={user.userName}>
+                                <div>{JSON.stringify(user)}</div>
                             </li>
                         ))}</ul>
                     : 'No Users Found'
