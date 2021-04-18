@@ -1,0 +1,56 @@
+{
+  "conf": {
+    "meta": {
+      "description": "b"
+    },
+    "loginFlow": [],
+    "useCookies": true,
+    "parameters": [
+      {
+        "a": "1"
+      }
+    ],
+    "authenticationHeaders": [],
+    "parametersScope": "FLOW",
+    "sharedLoginFlowDescription": "New Load Test - Apr 12"
+  },
+  "flows": [
+    {
+      "order": 0,
+      "conf": {
+        "duration": 60000,
+        "concurrency": 1,
+        "requests": [
+          {
+            "url": "wwwwaaaqwe",
+            "method": "GET",
+            "headers": [],
+            "assert": [],
+            "extract": [],
+            "timeout": 60000,
+            "expectedStatus": "SUCCESS",
+            "postData": {
+              "text": "",
+              "mimeType": "arnon"
+            }
+          }
+        ],
+        "meta": {
+          "description": "New Flow"
+        },
+        "parameterPools": [],
+        "targetedCountries": [],
+        "iterationDelay": 1000,
+        "cachePenetration": {},
+        "rampUp": 60000,
+        "skipLoginFlow": false,
+        "parameters": [
+          {
+            "a": "1"
+          }
+        ]
+      },
+      "runInCi": false
+    }
+  ]
+}
